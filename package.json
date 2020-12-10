@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "test:all": "npm run test:unit && npm run test:functional",
     "dev": " ts-node-dev 'src/index.ts'",
     "start": "npm run build && node dist/src/index.js",
     "lint": "eslint ./src ./test --ext .ts",
@@ -50,6 +51,6 @@
     "config": "^3.3.3",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
-    "mongoose": "^5.11.4"
+    "mongoose": "^5.11.5"
   }
 }
