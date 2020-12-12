@@ -31,7 +31,7 @@ const database = __importStar(require("@src/database"));
 const beaches_1 = require("./controller/beaches");
 const users_1 = require("./controller/users");
 class SetupServer extends core_1.Server {
-    constructor(port = process.env.PORT || 3000) {
+    constructor(port = 3000) {
         super();
         this.port = port;
     }
