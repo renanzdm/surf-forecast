@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test:all": "npm run test:unit && npm run test:functional",
+    "test": "npm run test:unit && npm run test:functional",
     "dev": " ts-node-dev 'src/index.ts'",
     "start": "npm run build && node dist/src/index.js",
     "lint": "eslint ./src ./test --ext .ts",
@@ -25,9 +25,11 @@
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/bcrypt": "^3.0.0",
     "@types/config": "0.0.37",
     "@types/express": "^4.17.9",
     "@types/jest": "^26.0.16",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/module-alias": "^2.0.0",
     "@types/mongoose": "^5.10.2",
     "@types/nock": "^11.1.0",
@@ -48,9 +50,11 @@
   "dependencies": {
     "@overnightjs/core": "^1.7.5",
     "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
     "config": "^3.3.3",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
-    "mongoose": "^5.11.5"
+    "mongoose": "^5.11.6"
   }
 }
