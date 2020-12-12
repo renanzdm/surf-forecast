@@ -31,3 +31,17 @@ jobs:
 
       - name: Run all tests
         run: npm run tests
+
+      - shell: bash
+        if: github.ref == 'refs/heads/main'
+        name: Create SSH deployment key
+        env: 
+           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  
+        run: ./scripts/deploy.sh
+
+      - name: Deployment
+        if: github.ref == 'refs/heads/main'
+        run: git remote add umbler https://kamino.deploy.umbler.com/j6qpmw8e/surf-renan-forecast-com.git && git push umbler master
+
+
+      

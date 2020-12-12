@@ -12,7 +12,6 @@ export class BeachesController {
         try {
             const beach = new Beach({ ...req.body, ...{ user: req.decoded?.id } });
             const result = await beach.save()
-            console.log(result);
 
 
             res.status(201).send(result);
