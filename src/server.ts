@@ -9,7 +9,7 @@ import { UsersController } from './controller/users';
 
 export class SetupServer extends Server {
   
-  constructor(private port = process.env.PORT || 3000) {
+  constructor(private port = 3000) {
     
     super();
     
