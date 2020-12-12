@@ -30,6 +30,7 @@ const forecast_1 = require("./controller/forecast");
 const database = __importStar(require("@src/database"));
 const beaches_1 = require("./controller/beaches");
 const users_1 = require("./controller/users");
+const logger_1 = __importDefault(require("./logger"));
 class SetupServer extends core_1.Server {
     constructor(port = 3000) {
         super();
@@ -60,7 +61,7 @@ class SetupServer extends core_1.Server {
     }
     start() {
         this.app.listen(this.port, () => {
-            console.info('Server listening of port', this.port);
+            logger_1.default.info('Server listening of port', this.port);
         });
     }
 }
