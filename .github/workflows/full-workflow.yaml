@@ -40,8 +40,8 @@ jobs:
         SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: ./scripts/deploy.sh
 
-    # - name: Deployment
-    #   if: github.ref == 'refs/heads/main'
-    #   run: git remote add umbler ssh://git@kamino.deploy.umbler.com:9922/j6qpmw8e/surf-renan-forecast-com.git && git push umbler master
-    #   env:
-    #     CI: true
+    - name: Deployment
+      if: github.ref == 'refs/heads/main'
+      run: git remote add umbler ssh://git@kamino.deploy.umbler.com:9922/j6qpmw8e/surf-renan-forecast-com.git && git push umbler master
+      env:
+        CI: true
