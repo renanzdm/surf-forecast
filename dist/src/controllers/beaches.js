@@ -8,32 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BeachesController = void 0;
 const core_1 = require("@overnightjs/core");
-const logger_1 = __importDefault(require("@src/logger"));
-const auth_1 = require("@src/middlewares/auth");
 const beach_1 = require("@src/models/beach");
-const mongoose_1 = __importDefault(require("mongoose"));
-let BeachesController = class BeachesController {
+const auth_1 = require("@src/middlewares/auth");
+const _1 = require(".");
+let BeachesController = class BeachesController extends _1.BaseController {
     async create(req, res) {
         var _a;
         try {
-            const beach = new beach_1.Beach({ ...req.body, ...{ user: (_a = req.decoded) === null || _a === void 0 ? void 0 : _a.id } });
+            const beach = new beach_1.Beach({ ...req.body, ...{ userId: (_a = req.decoded) === null || _a === void 0 ? void 0 : _a.id } });
             const result = await beach.save();
             res.status(201).send(result);
         }
-        catch (err) {
-            if (err instanceof mongoose_1.default.Error.ValidationError) {
-                res.status(422).send({ error: err.message });
-            }
-            else {
-                logger_1.default.error(err);
-                res.status(500).send('Internal Server Error');
-            }
+        catch (error) {
+            this.sendCreateUpdateErrorResponse(res, error);
         }
     }
 };

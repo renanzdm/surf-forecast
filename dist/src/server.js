@@ -32,7 +32,7 @@ const beaches_1 = require("./controller/beaches");
 const users_1 = require("./controller/users");
 const logger_1 = __importDefault(require("./logger"));
 class SetupServer extends core_1.Server {
-    constructor(port = 3000) {
+    constructor(port = process.env.PORT || 3000) {
         super();
         this.port = port;
     }
@@ -61,7 +61,7 @@ class SetupServer extends core_1.Server {
     }
     start() {
         this.app.listen(this.port, () => {
-            logger_1.default.info('Server listening of port', this.port);
+            logger_1.default.info('Server listening of port ' + this.port);
         });
     }
 }

@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseController = void 0;
+const logger_1 = __importDefault(require("@src/logger"));
 const user_1 = require("@src/models/user");
 const mongoose_1 = __importDefault(require("mongoose"));
 class BaseController {
@@ -13,6 +14,7 @@ class BaseController {
             res.status(handleError.code).send({ code: handleError.code, error: handleError.error });
         }
         else {
+            logger_1.default.error(error);
             res.status(500).send({ code: 500, error: 'Something went wrong' });
         }
     }
