@@ -3,6 +3,7 @@ import logger from '@src/logger';
 import { authMiddleware } from '@src/middlewares/auth';
 import { Beach } from '@src/models/beach';
 import { Forecast } from '@src/services/forecast';
+import ApiError from '@src/utils/errors/api-error';
 import { Request, Response } from 'express';
 import { BaseController } from '.';
 
@@ -26,7 +27,6 @@ export class ForecastController extends BaseController {
         code: 500,
         message: 'Something went wrong',
       });
-      res.status(500).send({ error: 'Something went wrong' });
     }
   }
 }
