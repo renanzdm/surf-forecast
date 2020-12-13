@@ -30,7 +30,11 @@ export class SetupServer extends Server {
         logger,
       })
     );
-    this.app.use(cors());
+    this.app.use(
+      cors({
+        origin: '*',
+      })
+    );
   }
   private setupControllers(): void {
     const forecastController = new ForecastController();
