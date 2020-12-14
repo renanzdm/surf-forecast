@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "tests": "npm run test:unit && npm run test:functional",
+    "test": "npm run test:unit && npm run test:functional",
     "dev": " ts-node-dev 'src/index.ts'",
     "start": "npm run build && node dist/src/index.js",
     "start:local": "ts-node-dev --transpile-only 'src/index.ts' | pino-pretty -c",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/config": "0.0.37",
+    "@types/cors": "^2.8.7",
     "@types/express": "^4.17.9",
     "@types/express-pino-logger": "^4.0.2",
     "@types/express-serve-static-core": "^4.17.15",
@@ -55,7 +56,6 @@
   "dependencies": {
     "@overnightjs/core": "^1.7.5",
     "@types/bcrypt": "^3.0.0",
-    "@types/cors": "^2.8.6",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "config": "^3.3.3",
