@@ -1,15 +1,18 @@
-import './utils/module_alias';
 import { Server } from '@overnightjs/core';
 import bodyParser from 'body-parser';
 import { ForecastController } from './controller/forecast';
 import { Application } from 'express';
 import * as http from 'http';
 import expressPino from 'express-pino-logger';
+import { OpenApiValidator } from 'express-openapi-validator';
+import { OpenAPIV3 } from 'express-openapi-validator/dist/framework/types';
 import cors from 'cors';
 import * as database from '@src/database';
 import { BeachesController } from './controller/beaches';
 import { UsersController } from './controller/users';
-import logger from './logger';
+import logger from '@src/logger';
+import swaggerUi from 'swagger-ui-express';
+import apiSchema from '@src/api-schema.json';
 
 export class SetupServer extends Server {
   private server?: http.Server;
@@ -62,6 +65,14 @@ export class SetupServer extends Server {
         });
       });
     }
+  }
+  private async docsSetup(): Promise<void> {
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiSchema));
+    await new OpenApiValidator({
+      apiSpec: apiSchema as OpenAPIV3.Document,
+      validateRequests: true, //we do it
+      validateResponses: true,
+    }).install(this.app);
   }
   public getApp(): Application {
     return this.app;
