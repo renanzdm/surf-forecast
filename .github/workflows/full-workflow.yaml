@@ -42,6 +42,7 @@ jobs:
 
     - name: Deployment
       if: github.ref == 'refs/heads/main'
-      run: git remote add umbler ssh://git@geonosis.deploy.umbler.com:9922/j6qpmw8e/storm-glass-forecast-com.git && git push umbler HEAD:master
+      run: git remote add umbler ssh://git@geonosis.deploy.umbler.com:9922/j6qpmw8e/storm-glass-forecast-com.git && git push umbler master
       env:
         CI: true
+
