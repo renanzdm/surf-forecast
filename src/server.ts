@@ -14,6 +14,7 @@ import { BeachesController } from './controllers/beaches';
 import { UsersController } from './controllers/users';
 import logger from './logger';
 import apiSchema from './api-schema.json';
+import { apiErrorValidator } from './middlewares/api-error-validator';
 
 export class SetupServer extends Server {
   private server?: http.Server;
@@ -34,6 +35,7 @@ export class SetupServer extends Server {
     await this.docsSetup();
     this.setupControllers();
     await this.databaseSetup();
+    this.setupErrorHanlders();
   }
 
   private setupExpress(): void {
@@ -49,7 +51,9 @@ export class SetupServer extends Server {
       })
     );
   }
-
+  private setupErrorHanlders(): void {
+    this.app.use(apiErrorValidator);
+  }
   private async docsSetup(): Promise<void> {
     this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiSchema));
     await new OpenApiValidator({
@@ -81,7 +85,7 @@ export class SetupServer extends Server {
   public async close(): Promise<void> {
     await database.close();
     if (this.server) {
-      await new Promise((resolve, reject) => {
+      await new Promise<void>((resolve, reject) => {
         this.server?.close((err) => {
           if (err) {
             return reject(err);
