@@ -1,14 +1,14 @@
-import { GeoPosition, Beach } from '@src/models/beach';
-import stormGlassWeather3HoursFixture from '@test/fixtures/stormglass_weather_3_hours.json';
+import { Beach, GeoPosition } from '@src/models/beach';
 import nock from 'nock';
-import apiForecastResponseOneBeach from '@test/fixtures/api_forecast_response_one_beach.json';
+import stormGlassWeather3HoursFixture from '../fixtures/stormglass_weather_3_hours.json';
+import apiForecastResponse1BeachFixture from '../fixtures/api_forecast_response_1_beach.json';
 import { User } from '@src/models/user';
 import AuthService from '@src/services/auth';
 
 describe('Beach forecast functional tests', () => {
-  const defaultUser = {
+  const defaultUser: User = {
     name: 'John Doe',
-    email: 'john2@mail.com',
+    email: 'john3@mail.com',
     password: '1234',
   };
   let token: string;
@@ -16,7 +16,6 @@ describe('Beach forecast functional tests', () => {
     await Beach.deleteMany({});
     await User.deleteMany({});
     const user = await new User(defaultUser).save();
-
     const defaultBeach = {
       lat: -33.792726,
       lng: 151.289824,
@@ -48,8 +47,10 @@ describe('Beach forecast functional tests', () => {
       .get('/forecast')
       .set({ 'x-access-token': token });
     expect(status).toBe(200);
-    expect(body).toEqual(apiForecastResponseOneBeach);
+    // Make sure we use toEqual to check value not the object and array itself
+    expect(body).toEqual(apiForecastResponse1BeachFixture);
   });
+
   it('should return 500 if something goes wrong during the processing', async () => {
     nock('https://api.stormglass.io:443', {
       encodedQueryParams: true,

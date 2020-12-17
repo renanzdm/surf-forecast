@@ -1,10 +1,10 @@
-import { ClassMiddleware, Controller, Get } from '@overnightjs/core';
-import logger from '@src/logger';
-import { authMiddleware } from '@src/middlewares/auth';
+import { Controller, Get, ClassMiddleware } from '@overnightjs/core';
+import { Request, Response } from 'express';
 import { Beach } from '@src/models/beach';
 import { Forecast } from '@src/services/forecast';
-import { Request, Response } from 'express';
+import { authMiddleware } from '@src/middlewares/auth';
 import { BaseController } from '.';
+import logger from '@src/logger';
 
 const forecast = new Forecast();
 
@@ -12,7 +12,7 @@ const forecast = new Forecast();
 @ClassMiddleware(authMiddleware)
 export class ForecastController extends BaseController {
   @Get('')
-  public async getForecastForLoggedUer(
+  public async getForecastForgeLoggedUser(
     req: Request,
     res: Response
   ): Promise<void> {
