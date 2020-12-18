@@ -4,6 +4,7 @@ import stormGlassWeather3HoursFixture from '../fixtures/stormglass_weather_3_hou
 import apiForecastResponse1BeachFixture from '../fixtures/api_forecast_response_1_beach.json';
 import { User } from '@src/models/user';
 import AuthService from '@src/services/auth';
+import CacheUtil from '@src/util/cache';
 
 describe('Beach forecast functional tests', () => {
   const defaultUser: User = {
@@ -16,16 +17,18 @@ describe('Beach forecast functional tests', () => {
     await Beach.deleteMany({});
     await User.deleteMany({});
     const user = await new User(defaultUser).save();
-    const defaultBeach = {
+    const defaultBeach: Beach = {
       lat: -33.792726,
       lng: 151.289824,
       name: 'Manly',
       position: GeoPosition.E,
-      user: user.id,
+      userId: user.id,
     };
     await new Beach(defaultBeach).save();
     token = AuthService.generateToken(user.toJSON());
+    CacheUtil.clearAllCache();
   });
+
   it('should return a forecast with just a few times', async () => {
     nock('https://api.stormglass.io:443', {
       encodedQueryParams: true,
@@ -39,8 +42,8 @@ describe('Beach forecast functional tests', () => {
         lat: '-33.792726',
         lng: '151.289824',
         params: /(.*)/,
-        end: /(.*)/,
         source: 'noaa',
+        end: /(.*)/,
       })
       .reply(200, stormGlassWeather3HoursFixture);
 
