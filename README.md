@@ -5,8 +5,22 @@
 <img src="https://img.shields.io/static/v1?label=GitHub&message=GitHubActions&color=blue&style=for-the-badge&logo=GitHubActions "/> 
 <img src="https://img.shields.io/static/v1?label=Jest&message=26.0.1&color=red&style=for-the-badge&logo=Jest"/> 
 <img src="https://img.shields.io/static/v1?label=TypeScript&message=3.8.3&color=blue&style=for-the-badge&logo=TypeScript"/> 
-
 <p>
+  Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Instalação](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+   * [Tests](#testes)
+   * [Tecnologias](#tecnologias)
+<!--te-->
 
 
 
