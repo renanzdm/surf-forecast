@@ -6,8 +6,7 @@
 <img src="https://img.shields.io/static/v1?label=Jest&message=26.0.1&color=red&style=for-the-badge&logo=Jest"/> 
 <img src="https://img.shields.io/static/v1?label=TypeScript&message=3.8.3&color=blue&style=for-the-badge&logo=TypeScript"/> 
 <p>
-  Tabela de conteúdos
-=================
+ <h1 align="center">Conteúdos</h1>
 
    * [Sobre](#Sobre)
    * [Tabela de Conteudo](#tabela-de-conteudo)
