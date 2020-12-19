@@ -5,6 +5,7 @@
 <img src="https://img.shields.io/static/v1?label=GitHub&message=GitHubActions&color=blue&style=for-the-badge&logo=GitHubActions "/> 
 <img src="https://img.shields.io/static/v1?label=Jest&message=26.0.1&color=red&style=for-the-badge&logo=Jest"/> 
 <img src="https://img.shields.io/static/v1?label=TypeScript&message=3.8.3&color=blue&style=for-the-badge&logo=TypeScript"/> 
+<img src="https://img.shields.io/static/v1?label=Swagger&message=3.8.3&color=green&style=for-the-badge&logo=Swagger"/> 
 <p>
 
 
