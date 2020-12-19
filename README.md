@@ -8,7 +8,7 @@
 <p>
   Tabela de conteúdos
 =================
-<!--ts-->
+
    * [Sobre](#Sobre)
    * [Tabela de Conteudo](#tabela-de-conteudo)
    * [Instalação](#instalacao)
@@ -20,7 +20,7 @@
       * [Combo](#combo)
    * [Tests](#testes)
    * [Tecnologias](#tecnologias)
-<!--te-->
+
 
 
 
