@@ -23,7 +23,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "surf-forecast-beaches"
         heroku_email: "renanzdm@gmail.com"
-        usedocker: true
+        # usedocker: true
 
     - name: Start MongoDB
       uses: supercharge/mongodb-github-action@1.3.0
