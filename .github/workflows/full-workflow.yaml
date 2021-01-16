@@ -13,7 +13,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: git fetch --prune --unshallow
+      - uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "surf-forecast-beaches" #Must be unique in Heroku
+          heroku_email: "renanzdm@gmail.com"
+          usedocker: true
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
