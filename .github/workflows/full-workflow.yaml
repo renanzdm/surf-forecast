@@ -1,5 +1,6 @@
 name: Complete workflow
 
+on: ['push']
 
 jobs:
 
