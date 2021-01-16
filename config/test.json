@@ -6,7 +6,7 @@
       }
     },
     "database": {
-      "mongoUrl": "mongodb://localhost:27017/surf-forecast-test"
+      "mongoUrl": "mongodb://renan:26062019@localhost:27017/admin"
     },
     "logger": {
       "enabled": false
