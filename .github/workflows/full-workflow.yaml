@@ -18,8 +18,6 @@ jobs:
         with:
           node_version: ${{ matrix.node-version }}
 
-      - run: git config --global user.email "renanzdm@gmail.com" && git config --global user.name "renanzdm" && git add -A && git commit -m "Updated code" && git push --force origin surf-forecast:HEAD
-
       - uses: akhileshns/heroku-deploy@v3.8.9
         with:
           # node-version: ${{ matrix.node-version }}
