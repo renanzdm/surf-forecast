@@ -22,7 +22,8 @@
     "api"
   ],
   "engines": {
-    "node": "v14.15.4"
+    "node": "v14.15.4",
+    "npm": "6.14.10"
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.4",
