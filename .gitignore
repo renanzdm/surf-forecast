@@ -1,9 +1,9 @@
 # Logs
 logs
 *.log
-yarn-debug.log*
-yarn-debug.log*
-yarn-error.log*
+npm-debug.log*
+npm-debug.log*
+npm-error.log*
 
 # Runtime data
 pids
@@ -39,8 +39,8 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
-# Optional yarn cache directory
-.yarn
+# Optional npm cache directory
+.npm
 
 # Optional eslint cache
 .eslintcache
@@ -48,11 +48,11 @@ typings/
 # Optional REPL history
 .node_repl_history
 
-# Output of 'yarn pack'
+# Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
+# npm Integrity file
+.npm-integrity
 
 # dotenv environment variables file
 .env
