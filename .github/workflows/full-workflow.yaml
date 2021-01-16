@@ -19,7 +19,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
           node_version: ${{ matrix.node-version }}
-    
     - run: git add -A && git commit -m "Updated code"
 
     - uses: akhileshns/heroku-deploy@v3.8.9
