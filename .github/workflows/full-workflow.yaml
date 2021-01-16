@@ -8,10 +8,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-        mongodb-version: [4.2]
+    # strategy:
+    #   matrix:
+    #     node-version: [12.x]
+    #     mongodb-version: [4.2]
 
     steps:
     - uses: actions/checkout@v2
@@ -25,16 +25,16 @@ jobs:
         heroku_email: "renanzdm@gmail.com"
         usedocker: true
 
-    - name: Start MongoDB
-      uses: supercharge/mongodb-github-action@1.3.0
-      with:
-        mongodb-version: ${{ matrix.mongodb-version }}
+    # - name: Start MongoDB
+    #   uses: supercharge/mongodb-github-action@1.3.0
+    #   with:
+    #     mongodb-version: ${{ matrix.mongodb-version }}
 
-    - name: Install dependencies
-      run: npm --frozen-lockfile
+    # - name: Install dependencies
+    #   run: npm --frozen-lockfile
 
-    - name: Run all tests
-      run: npm run tests
+    # - name: Run all tests
+    #   run: npm run tests
 
     # - shell: bash
     #   if: github.ref == 'refs/heads/main'
