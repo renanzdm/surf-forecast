@@ -2,7 +2,7 @@
   "App": {
     "port": 3000,
     "database": {
-      "mongoUrl": "mongodb://renan:26062019@localhost:27017/admin"
+      "mongoUrl": "mongodb://localhost:27017/surf-forecast"
     },
     "auth": {
       "key": "some-key",
