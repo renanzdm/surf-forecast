@@ -35,7 +35,8 @@ export class SetupServer extends Server {
     await this.docsSetup();
     this.setupControllers();
     await this.databaseSetup();
-    this.setupErrorHanlders();
+    //must be the last
+    this.setupErrorHandlers();
   }
 
   private setupExpress(): void {
@@ -51,14 +52,12 @@ export class SetupServer extends Server {
       })
     );
   }
-  private setupErrorHanlders(): void {
-    this.app.use(apiErrorValidator);
-  }
+
   private async docsSetup(): Promise<void> {
     this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiSchema));
     await new OpenApiValidator({
       apiSpec: apiSchema as OpenAPIV3.Document,
-      validateRequests: true, //we do it
+      validateRequests: false, //we do it
       validateResponses: true,
     }).install(this.app);
   }
@@ -74,6 +73,10 @@ export class SetupServer extends Server {
     ]);
   }
 
+  private setupErrorHandlers(): void {
+    this.app.use(apiErrorValidator);
+  }
+
   public getApp(): Application {
     return this.app;
   }
@@ -85,12 +88,12 @@ export class SetupServer extends Server {
   public async close(): Promise<void> {
     await database.close();
     if (this.server) {
-      await new Promise<void>((resolve, reject) => {
+      await new Promise((resolve, reject) => {
         this.server?.close((err) => {
           if (err) {
             return reject(err);
           }
-          resolve();
+          resolve(true);
         });
       });
     }

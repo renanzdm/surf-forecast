@@ -15,7 +15,7 @@ export enum CUSTOM_VALIDATION {
 
 interface UserModel extends Omit<User, '_id'>, Document {}
 
-const schema = new mongoose.Schema<UserModel>(
+const schema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: {

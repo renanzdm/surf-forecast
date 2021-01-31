@@ -5,7 +5,7 @@
       "mongoUrl": "mongodb://localhost:27017/surf-forecast"
     },
     "auth": {
-      "key": "some-key",
+      "key": "renan",
       "tokenExpiresIn": "20000000"
     },
     "resources": {

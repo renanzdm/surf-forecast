@@ -31,9 +31,10 @@ process.on('uncaughtException', (error) => {
       process.on(exitSignal, async () => {
         try {
           await server.close();
-          logger.info('App exited with Success');
+          logger.info(`App exited with success`);
+          process.exit(ExitStatus.Success);
         } catch (error) {
-          logger.error('App exited with Error');
+          logger.error(`App exited with error: ${error}`);
           process.exit(ExitStatus.Failure);
         }
       });

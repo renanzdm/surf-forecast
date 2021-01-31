@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response, NextFunction } from 'express';
 import ApiError from '@src/util/errors/api-error';
 
@@ -14,5 +15,5 @@ export function apiErrorValidator(
   const errorCode = error.status || 500;
   res
     .status(errorCode)
-    .send(ApiError.format({ code: errorCode, message: error.message }));
+    .json(ApiError.format({ code: errorCode, message: error.message }));
 }
