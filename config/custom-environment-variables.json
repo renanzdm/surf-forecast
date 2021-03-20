@@ -12,8 +12,7 @@
       }
     },
     "auth": {
-      "key": "JWT_SECRET_KEY",
-      "keyMap":"AIzaSyDCvGLg2p6H5lBkQn39umEMwWaJ53Wfy6k"
+      "key": "JWT_SECRET_KEY"
     }
   }
 }
